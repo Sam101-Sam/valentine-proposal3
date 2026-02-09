@@ -122,20 +122,16 @@
   <!-- Song Button -->
   <button id="songBtn" 
           style="background:#ffb3c6; color:#800040; font-weight:bold;">
-    🎶 Play Our Song (Perfect)
+    🎶 Play Our Song (Bensound Love)
   </button>
 
-  <!-- Hidden YouTube Player for Background Music -->
-  <iframe id="songPlayer" width="0" height="0"
-          src="https://www.youtube.com/embed/2Vv-BfVoq4g?autoplay=1&mute=0"
-          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
-          style="display:none;">
-  </iframe>
+  <!-- Hidden Audio for Bensound Love -->
+  <audio id="songPlayer" src="https://www.bensound.com/bensound-music/bensound-love.mp3"></audio>
 
   <!-- YES Message -->
   <h2 id="yesMessage">
-    💖 AIYAYAAYA!! ML said YES!! 💖<br>
-    LOVE YOU, Sam 😘
+    💖 YAYYYY!! Trista said YES!! 💖<br>
+    Love, Sam 😘
   </h2>
 
   <!-- Sweet Love Paragraph -->
@@ -143,11 +139,14 @@
     Trista, I want you to know how deeply I love and adore you. Every moment with you
     feels magical, and I cherish every smile, every laugh, every hug we share. You
     are my heart, my happiness, and my everything. I promise to make you feel as
-    special as you make me every single day.As we go through this relationship together
-    i wanna create good moments coz u r my daymaker baby..... nakupenda tu sana n always know
-    that u have a loving n caring boyfriend in your life baby.Cant wait for what is yet to come
-    for us mama but all i can tell you baby is that I love u so much.Lakini kukusumbua nayo ni lazima
-    ju ni mimi tu ndio naweza kuragebait haraka tena sana nakupenda mama "Kisses Baby" 💕
+    special as you make me every single day. As we go through this relationship together
+    i want to create good n happy moments with you coz you are my daymaker waking up in the morning 
+    knowing that i will talk to you gives me a reason to smile n going to sleep also gives me a reason 
+    to wake up the next day mama coz litreally i love you baby.Even though sometimes we have hicups we always
+    find a solution n i love u for that......nakupenda tu sana n always know that u have a loving
+    n caring boyfriend in your life baby.I Cant wait for what is yet to come for us mama but all i can
+    tell you is that i love you so much.Lakini pia kukusumbua nayo ni constant ju ni mimi tu naweza kuragebait 
+    haraka tena sana n always takecare for me."KIsses Baby"I LOVE YOU💕
   </p>
 
   <script>
@@ -189,7 +188,7 @@
     const songPlayer = document.getElementById("songPlayer");
 
     songBtn.addEventListener("click", () => {
-      songPlayer.style.display = "block"; // starts playing
+      songPlayer.play();
       songBtn.style.display = "none"; // hide button after press
     });
   </script>
