@@ -4,11 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Valentine Proposal 💖</title>
-
   <style>
     body {
-      margin: 0;
-      padding: 0;
+      margin:0;
+      padding:0;
       background: url('https://images.unsplash.com/photo-1519025001670-6c7e7c8a40b7?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
       background-size: cover;
       font-family: Arial, sans-serif;
@@ -22,14 +21,14 @@
     h1 {
       font-size: 3rem;
       position: relative;
-      z-index: 2;
+      z-index:2;
     }
 
     p {
       font-size: 1.3rem;
       position: relative;
-      z-index: 2;
-      margin: 10px 30px;
+      z-index:2;
+      margin:10px 30px;
     }
 
     button {
@@ -41,155 +40,99 @@
       cursor: pointer;
       transition: 0.3s;
       position: relative;
-      z-index: 2;
+      z-index:2;
     }
 
     .yes {
       background: #ff4d6d;
-      color: white;
+      color:white;
     }
-
     .yes:hover {
-      background: #e6004c;
+      background:#e6004c;
     }
 
     .no {
-      background: white;
-      border: 2px solid #ff4d6d;
-      color: #ff4d6d;
-      position: absolute;
+      background:white;
+      border:2px solid #ff4d6d;
+      color:#ff4d6d;
+      position:absolute;
     }
 
     /* Floating Hearts */
-    .heart {
-      position: absolute;
-      bottom: -20px;
-      font-size: 24px;
+    .heart{
+      position:absolute;
+      bottom:-20px;
+      font-size:24px;
       animation: floatUp 6s linear infinite;
-      opacity: 0.8;
+      opacity:0.8;
     }
-
     @keyframes floatUp {
-      0% { transform: translateY(0); opacity: 0.9; }
-      100% { transform: translateY(-900px); opacity: 0; }
-    }
-
-    /* Hidden YES Message */
-    #yesMessage {
-      display: none;
-      margin-top: 50px;
-      font-size: 2rem;
-      position: relative;
-      z-index: 2;
-    }
-
-    /* Sweet Love Paragraph */
-    #loveParagraph {
-      font-size: 1.2rem;
-      margin: 20px 40px;
-      color: #ffd6e0;
-      display: none;
-      position: relative;
-      z-index: 2;
+      0%{transform:translateY(0);opacity:0.9;}
+      100%{transform:translateY(-900px);opacity:0;}
     }
   </style>
 </head>
-
 <body>
 
   <h1>💘 Trista, Will You Be My Valentine? 💘</h1>
 
-  <p>
-    Hey Trista ❤️<br>
-    You make life sweeter just by being in it.<br>
-    Will you be my Valentine this year?
-  </p>
+  <p>Hey Trista ❤️<br>
+  You make life sweeter just by being in it.<br>
+  Will you be my Valentine this year?</p>
 
-  <p>
-    🌹 Trista, you’re my favorite person in the world… 🌹
-  </p>
+  <p>🌹 Trista, you’re my favorite person in the world… 🌹</p>
 
   <!-- YES Button -->
-  <button class="yes" onclick="yesClicked()">
-    Yes 😍
-  </button>
+  <button class="yes" onclick="goToLovePage()">Yes 😍</button>
 
   <!-- NO Button -->
-  <button class="no" id="noBtn">
-    No 🙃
-  </button>
+  <button class="no" id="noBtn">No 🙃</button>
 
   <!-- Song Button -->
-  <button id="songBtn" 
-          style="background:#ffb3c6; color:#800040; font-weight:bold;">
+  <button id="songBtn" style="background:#ffb3c6; color:#800040; font-weight:bold;">
     🎶 Play Our Song (Bensound Love)
   </button>
 
-  <!-- Hidden Audio for Bensound Love -->
+  <!-- Hidden Audio -->
   <audio id="songPlayer" src="https://www.bensound.com/bensound-music/bensound-love.mp3"></audio>
 
-  <!-- YES Message -->
-  <h2 id="yesMessage">
-    💖 AUUUUUWU!! ML said YES!! 💖<br>
-    I LOVE YOU, Sam 😘
-  </h2>
-
-  <!-- Sweet Love Paragraph -->
-  <p id="loveParagraph">
-    Trista, I want you to know how deeply I love and adore you. Every moment with you
-    feels magical, and I cherish every smile, every laugh, every hug we share. You
-    are my heart, my happiness, and my everything. I promise to make you feel as
-    special as you make me every single day. As we go through this relationship together
-    i want to create good n happy moments with you coz you are my daymaker waking up in the morning 
-    knowing that i will talk to you gives me a reason to smile n going to sleep also gives me a reason 
-    to wake up the next day mama coz litreally i love you baby.Even though sometimes we have hicups we always
-    find a solution n i love u for that......nakupenda tu sana n always know that u have a loving
-    n caring boyfriend in your life baby.I Cant wait for what is yet to come for us mama but all i can
-    tell you is that i love you so much.Lakini pia kukusumbua nayo ni constant ju ni mimi tu naweza kuragebait 
-    haraka tena sana n always takecare for me."KIsses Baby"I LOVE YOU💕
-  </p>
-
   <script>
-    /* YES Button Action */
-    function yesClicked() {
-      document.getElementById("yesMessage").style.display = "block";
-      document.getElementById("loveParagraph").style.display = "block";
+    // Go to love page
+    function goToLovePage() {
+      window.location.href = "love.html";
     }
 
-    /* No Button Runs Away */
-    const noBtn = document.getElementById("noBtn");
-    noBtn.addEventListener("mouseover", function () {
-      const x = Math.random() * (window.innerWidth - 150);
-      const y = Math.random() * (window.innerHeight - 150);
-      noBtn.style.left = x + "px";
-      noBtn.style.top = y + "px";
-    });
-
-    /* Floating Hearts */
-    const hearts = ["💖","💘","❤️","💕","😍"];
-    function createHeart() {
-      const heart = document.createElement("div");
+    // Floating Hearts
+    const hearts=["💖","💘","❤️","💕","😍"];
+    function createHeart(){
+      const heart=document.createElement("div");
       heart.classList.add("heart");
-      heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = (20 + Math.random() * 20) + "px";
-      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+      heart.innerHTML=hearts[Math.floor(Math.random()*hearts.length)];
+      heart.style.left=Math.random()*100+"vw";
+      heart.style.fontSize=(20+Math.random()*20)+"px";
+      heart.style.animationDuration=(3+Math.random()*3)+"s";
       document.body.appendChild(heart);
       setTimeout(()=>heart.remove(),6000);
     }
-    setInterval(createHeart, 300);
+    setInterval(createHeart,300);
 
-    /* Start No Button Position */
-    noBtn.style.left = "55%";
-    noBtn.style.top = "65%";
+    // No button runs away
+    const noBtn=document.getElementById("noBtn");
+    noBtn.addEventListener("mouseover",()=>{
+      const x=Math.random()*(window.innerWidth-150);
+      const y=Math.random()*(window.innerHeight-150);
+      noBtn.style.left=x+"px";
+      noBtn.style.top=y+"px";
+    });
+    noBtn.style.left="55%";
+    noBtn.style.top="65%";
 
-    /* Song Button Action */
-    const songBtn = document.getElementById("songBtn");
-    const songPlayer = document.getElementById("songPlayer");
-
-    songBtn.addEventListener("click", () => {
+    // Song button
+    const songBtn=document.getElementById("songBtn");
+    const songPlayer=document.getElementById("songPlayer");
+    songBtn.addEventListener("click",()=>{
       songPlayer.play();
-      songBtn.style.display = "none"; // hide button after press
+      songBtn.style.display="none";
     });
   </script>
 
