@@ -13,14 +13,14 @@
       background-size: cover;
       font-family: Arial, sans-serif;
       text-align: center;
-      padding-top: 100px;
+      padding-top: 80px;
       overflow: hidden;
       color: white;
       text-shadow: 2px 2px 6px #800040;
     }
 
     h1 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       position: relative;
       z-index: 2;
     }
@@ -29,7 +29,7 @@
       font-size: 1.3rem;
       position: relative;
       z-index: 2;
-      margin: 10px 20px;
+      margin: 10px 30px;
     }
 
     button {
@@ -82,6 +82,16 @@
       position: relative;
       z-index: 2;
     }
+
+    /* Sweet Love Paragraph */
+    #loveParagraph {
+      font-size: 1.2rem;
+      margin: 20px 40px;
+      color: #ffd6e0;
+      display: none;
+      position: relative;
+      z-index: 2;
+    }
   </style>
 </head>
 
@@ -104,32 +114,51 @@
     Yes 😍
   </button>
 
-  <!-- NO Button (Runs Away) -->
+  <!-- NO Button -->
   <button class="no" id="noBtn">
     No 🙃
   </button>
 
-  <!-- 🎶 Song Button -->
-  <button onclick="window.open('https://youtu.be/2Vv-BfVoq4g', '_blank')"
-    style="background:#ffb3c6; color:#800040; font-weight:bold;">
+  <!-- Song Button -->
+  <button id="songBtn" 
+          style="background:#ffb3c6; color:#800040; font-weight:bold;">
     🎶 Play Our Song (Perfect)
   </button>
 
+  <!-- Hidden YouTube Player for Background Music -->
+  <iframe id="songPlayer" width="0" height="0"
+          src="https://www.youtube.com/embed/2Vv-BfVoq4g?autoplay=1&mute=0"
+          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
+          style="display:none;">
+  </iframe>
+
   <!-- YES Message -->
   <h2 id="yesMessage">
-    💖 YAYYYY!! Trista said YES!! 💖<br>
-    Love, Sam 😘
+    💖 AIYAYAAYA!! ML said YES!! 💖<br>
+    LOVE YOU, Sam 😘
   </h2>
+
+  <!-- Sweet Love Paragraph -->
+  <p id="loveParagraph">
+    Trista, I want you to know how deeply I love and adore you. Every moment with you
+    feels magical, and I cherish every smile, every laugh, every hug we share. You
+    are my heart, my happiness, and my everything. I promise to make you feel as
+    special as you make me every single day.As we go through this relationship together
+    i wanna create good moments coz u r my daymaker baby..... nakupenda tu sana n always know
+    that u have a loving n caring boyfriend in your life baby.Cant wait for what is yet to come
+    for us mama but all i can tell you baby is that I love u so much.Lakini kukusumbua nayo ni lazima
+    ju ni mimi tu ndio naweza kuragebait haraka tena sana nakupenda mama "Kisses Baby" 💕
+  </p>
 
   <script>
     /* YES Button Action */
     function yesClicked() {
       document.getElementById("yesMessage").style.display = "block";
+      document.getElementById("loveParagraph").style.display = "block";
     }
 
     /* No Button Runs Away */
     const noBtn = document.getElementById("noBtn");
-
     noBtn.addEventListener("mouseover", function () {
       const x = Math.random() * (window.innerWidth - 150);
       const y = Math.random() * (window.innerHeight - 150);
@@ -139,7 +168,6 @@
 
     /* Floating Hearts */
     const hearts = ["💖","💘","❤️","💕","😍"];
-
     function createHeart() {
       const heart = document.createElement("div");
       heart.classList.add("heart");
@@ -150,12 +178,20 @@
       document.body.appendChild(heart);
       setTimeout(()=>heart.remove(),6000);
     }
-
     setInterval(createHeart, 300);
 
     /* Start No Button Position */
     noBtn.style.left = "55%";
     noBtn.style.top = "65%";
+
+    /* Song Button Action */
+    const songBtn = document.getElementById("songBtn");
+    const songPlayer = document.getElementById("songPlayer");
+
+    songBtn.addEventListener("click", () => {
+      songPlayer.style.display = "block"; // starts playing
+      songBtn.style.display = "none"; // hide button after press
+    });
   </script>
 
 </body>
