@@ -4,31 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Valentine Proposal 💖</title>
+
   <style>
     body {
-      margin:0;
-      padding:0;
-      background: url('https://images.unsplash.com/photo-1519025001670-6c7e7c8a40b7?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      margin: 0;
+      padding: 0;
+      background: url('https://images.unsplash.com/photo-1549237510-f9e80c1c3ecb?auto=format&fit=crop&w=1470&q=80')
+        no-repeat center center fixed;
       background-size: cover;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding-top: 80px;
-      overflow: hidden;
+      font-family: "Georgia", serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       color: white;
-      text-shadow: 2px 2px 6px #800040;
+      text-align: center;
     }
 
     h1 {
-      font-size: 3rem;
-      position: relative;
-      z-index:2;
-    }
-
-    p {
-      font-size: 1.3rem;
-      position: relative;
-      z-index:2;
-      margin:10px 30px;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      text-shadow: 2px 2px 6px #800040;
     }
 
     button {
@@ -36,103 +33,55 @@
       padding: 15px 30px;
       font-size: 18px;
       border: none;
-      border-radius: 12px;
+      border-radius: 15px;
       cursor: pointer;
+      font-weight: bold;
       transition: 0.3s;
-      position: relative;
-      z-index:2;
     }
 
     .yes {
       background: #ff4d6d;
-      color:white;
+      color: white;
     }
+
     .yes:hover {
-      background:#e6004c;
+      background: #e6004c;
     }
 
     .no {
-      background:white;
-      border:2px solid #ff4d6d;
-      color:#ff4d6d;
-      position:absolute;
+      background: #fff;
+      color: #ff4d6d;
     }
 
-    /* Floating Hearts */
-    .heart{
-      position:absolute;
-      bottom:-20px;
-      font-size:24px;
-      animation: floatUp 6s linear infinite;
-      opacity:0.8;
-    }
-    @keyframes floatUp {
-      0%{transform:translateY(0);opacity:0.9;}
-      100%{transform:translateY(-900px);opacity:0;}
+    .no:hover {
+      background: #ffcccc;
     }
   </style>
 </head>
+
 <body>
+  <h1>Trista, Will You Be My Valentine? 💖</h1>
 
-  <h1>💘 Trista, Will You Be My Valentine? 💘</h1>
-
-  <p>Hey Trista ❤️<br>
-  You make life sweeter just by being in it.<br>
-  Will you be my Valentine this year?</p>
-
-  <!-- YES Button -->
+  <!-- YES / NO Buttons -->
   <button class="yes" onclick="goToLovePage()">Yes 😍</button>
-
-  <!-- NO Button -->
   <button class="no" id="noBtn">No 🙃</button>
 
-  <!-- Song Button -->
-  <button id="songBtn" style="background:#ffb3c6; color:#800040; font-weight:bold;">
-    🎶 Play Our Song (Bensound Love)
-  </button>
-
-  <!-- Hidden Audio -->
-  <audio id="songPlayer" src="https://www.bensound.com/bensound-music/bensound-love.mp3"></audio>
-
   <script>
-    // Go to love page
+    // YES goes to love.html
     function goToLovePage() {
       window.location.href = "love.html";
     }
 
-    // Floating Hearts
-    const hearts=["💖","💘","❤️","💕","😍"];
-    function createHeart(){
-      const heart=document.createElement("div");
-      heart.classList.add("heart");
-      heart.innerHTML=hearts[Math.floor(Math.random()*hearts.length)];
-      heart.style.left=Math.random()*100+"vw";
-      heart.style.fontSize=(20+Math.random()*20)+"px";
-      heart.style.animationDuration=(3+Math.random()*3)+"s";
-      document.body.appendChild(heart);
-      setTimeout(()=>heart.remove(),6000);
-    }
-    setInterval(createHeart,300);
-
-    // No button runs away
-    const noBtn=document.getElementById("noBtn");
-    noBtn.addEventListener("mouseover",()=>{
-      const x=Math.random()*(window.innerWidth-150);
-      const y=Math.random()*(window.innerHeight-150);
-      noBtn.style.left=x+"px";
-      noBtn.style.top=y+"px";
-    });
-    noBtn.style.left="55%";
-    noBtn.style.top="65%";
-
-    // Song button
-    const songBtn=document.getElementById("songBtn");
-    const songPlayer=document.getElementById("songPlayer");
-    songBtn.addEventListener("click",()=>{
-      songPlayer.play();
-      songBtn.style.display="none";
+    // NO button behavior (optional fun)
+    const noBtn = document.getElementById("noBtn");
+    noBtn.addEventListener("mouseover", () => {
+      // Move the NO button randomly
+      const x = Math.random() * (window.innerWidth - 150);
+      const y = Math.random() * (window.innerHeight - 60);
+      noBtn.style.position = "absolute";
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
     });
   </script>
-
 </body>
 </html>
