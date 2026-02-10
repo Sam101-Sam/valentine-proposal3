@@ -4,82 +4,131 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Love for Trista 💖</title>
+
   <style>
     body {
-      margin:0;
-      padding:0;
-      background: url('https://images.unsplash.com/photo-1519025001670-6c7e7c8a40b7?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      margin: 0;
+      padding: 0;
+      background: url('https://images.unsplash.com/photo-1519025001670-6c7e7c8a40b7?auto=format&fit=crop&w=1470&q=80')
+        no-repeat center center fixed;
       background-size: cover;
-      font-family: Arial, sans-serif;
+      font-family: "Georgia", serif;
       text-align: center;
-      padding-top: 80px;
-      overflow:hidden;
-      color: white;/*All text in white*/
-      text-shadow: 2px 2px 6px #800040;
+      overflow: hidden;
+      color: white;
     }
+
+    /* 💌 Love Letter Card */
+    .card {
+      background: rgba(0, 0, 0, 0.45);
+      width: 80%;
+      max-width: 650px;
+      margin: 100px auto;
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 0 25px rgba(255, 0, 100, 0.4);
+      position: relative;
+      z-index: 2;
+    }
+
     h1 {
-      font-size:3rem;
-      position:relative;
-      z-index:2;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #fff;
     }
+
     p {
-      font-size:1.3rem;
-      margin:20px 40px;
-      position:relative;
-      z-index:2;
-      color:#ffd6e0;
+      font-size: 1.3rem;
+      line-height: 1.8;
+      color: white;
+      margin: 0;
     }
+
+    .signature {
+      margin-top: 30px;
+      font-size: 1.4rem;
+      font-style: italic;
+      color: #ffb3c6;
+    }
+
     /* Floating Hearts */
-    .heart{
-      position:absolute;
-      bottom:-20px;
-      font-size:24px;
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      font-size: 24px;
       animation: floatUp 6s linear infinite;
-      opacity:0.8;
+      opacity: 0.8;
     }
+
     @keyframes floatUp {
-      0%{transform:translateY(0);opacity:0.9;}
-      100%{transform:translateY(-900px);opacity:0;}
+      0% {
+        transform: translateY(0);
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateY(-900px);
+        opacity: 0;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <h1>💖 My Love for You 💖</h1>
+  <!-- 💌 Love Letter Card -->
+  <div class="card">
+    <h1>💖LOVE YOU 💖</h1>
 
-  <p>
-     Trista, I want you to know how deeply I love and adore you. Every moment with you
-    feels magical, and I cherish every smile, every laugh, every hug we share. You
-    are my heart, my happiness, and my everything. I promise to make you feel as
-    special as you make me every single day. As we go through this relationship together
-    i want to create good n happy moments with you coz you are my daymaker waking up in the morning 
-    knowing that i will talk to you gives me a reason to smile n going to sleep also gives me a reason 
-    to wake up the next day mama coz litreally i love you baby.Even though sometimes we have hicups we always
-    find a solution n i love u for that......nakupenda tu sana n always know that u have a loving
-    n caring boyfriend in your life baby.I Cant wait for what is yet to come for us mama but all i can
-    tell you is that i love you so much.Lakini pia kukusumbua nayo ni constant ju ni mimi tu naweza kuragebait 
-    haraka tena sana n always takecare for me."KIsses Baby"I LOVE YOU💕
-  </p>
+    <p>
+      Trista, I want you to know how deeply I love and adore you.
+      Every moment with you feels magical, and I cherish every smile,
+      every laugh, every hug we share.
+      You are my heart, my happiness, and my everything. I promise to make you feel as
+      special as you make me every single day. As we go through this relationship together
+      i want to create good n happy moments with you coz you are my daymaker.Waking up in the morning 
+      knowing that i will talk to you gives me a reason to smile n going to sleep also gives me a reason 
+      to wake up the next day mama coz litreally i love you baby.Even though sometimes we have hicups we always
+      find a solution n i love u for that......nakupenda tu sana n always know that u have a loving
+      n caring boyfriend in your life baby.I Cant wait for what is yet to come for us mama but all i can
+      tell you is that i love you so much.Lakini pia kukusumbua nayo ni constant ju ni mimi tu naweza kuragebait 
+      haraka tena sana n always takecare for me."KIsses Baby"I LOVE YOU💕<br><br>
 
-  <!-- Background Bensound Music -->
+      You are my heart, my happiness, and my everything.
+      I promise to make you feel as special as you make me
+      every single day. 💕
+    </p>
+
+    <div class="signature">
+      — Your Love, Sam 😘
+    </div>
+  </div>
+
+  <!-- 🎶 Background Music -->
   <audio autoplay loop>
     <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
   </audio>
 
   <script>
-    // Floating Hearts
-    const hearts=["💖","💘","❤️","💕","😍"];
-    function createHeart(){
-      const heart=document.createElement("div");
+    /* Floating Hearts */
+    const hearts = ["💖", "💘", "❤️", "💕", "😍"];
+
+    function createHeart() {
+      const heart = document.createElement("div");
       heart.classList.add("heart");
-      heart.innerHTML=hearts[Math.floor(Math.random()*hearts.length)];
-      heart.style.left=Math.random()*100+"vw";
-      heart.style.fontSize=(20+Math.random()*20)+"px";
-      heart.style.animationDuration=(3+Math.random()*3)+"s";
+      heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (20 + Math.random() * 20) + "px";
+      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
       document.body.appendChild(heart);
-      setTimeout(()=>heart.remove(),6000);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
     }
-    setInterval(createHeart,300);
+
+    setInterval(createHeart, 300);
   </script>
 
 </body>
