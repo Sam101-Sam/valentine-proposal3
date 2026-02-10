@@ -71,21 +71,25 @@
       transition: 0.3s;
     }
 
+    /* Envelope Button (Read Letter) */
     .readBtn {
       background: #ff4d6d;
       color: white;
+      animation: shake 1.2s infinite;
     }
 
-    .readBtn:hover {
-      background: #e6004c;
-    }
-
+    /* Minimize Button */
     .minBtn {
       background: white;
       color: #ff4d6d;
       display: none;
     }
 
+    .readBtn:hover {
+      background: #e6004c;
+    }
+
+    /* Signature */
     .signature {
       margin-top: 25px;
       font-size: 1.3rem;
@@ -106,28 +110,32 @@
       0% { transform: translateY(0); opacity: 0.9; }
       100% { transform: translateY(-900px); opacity: 0; }
     }
+
+    /* Shake Animation for Envelope */
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(-5px); }
+      40% { transform: translateX(5px); }
+      60% { transform: translateX(-5px); }
+      80% { transform: translateX(5px); }
+      100% { transform: translateX(0); }
+    }
   </style>
 </head>
 
 <body>
 
   <div class="card">
-    <h1>💖 Aiyayayaya Mama for You💖</h1>
+    <h1>💖 Aiyayaya Mama for You 💖</h1>
 
-    <!-- Buttons -->
-    <button class="readBtn" id="readMoreBtn">💌 </button>
+    <!-- Envelope Button -->
+    <button class="readBtn" id="readMoreBtn">💌 Open My Love Letter</button>
     <button class="minBtn" id="minimizeBtn">✨ Minimize</button>
 
-    <!-- Scrollable Message -->
+    <!-- Scrollable Love Message -->
     <div class="message-box" id="loveMessage">
-       <p>
-        I want you to know how deeply I love and adore you.
-        Every moment with you feels magical, and I cherish every smile,
-        every laugh, every hug we share.
-      
-         <br><br>
       <p>
-        Mama you are my heart, my happiness, and my everything. 💖  
+        Mama, you are my heart, my happiness, and my everything. 💖  
         I promise to love you, adore you, and make you feel special every single day.
 
         <br><br>
@@ -154,12 +162,12 @@
     </div>
 
     <div class="signature">
-      — Love you, Sam 😘
+      — Love, Sam 😘
     </div>
   </div>
 
-  <!-- 🎶 Background Music -->
-  <audio autoplay loop>
+  <!-- 🎶 Background Music (Hidden Initially) -->
+  <audio id="bgMusic" loop>
     <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
   </audio>
 
@@ -168,11 +176,15 @@
     const readBtn = document.getElementById("readMoreBtn");
     const minBtn = document.getElementById("minimizeBtn");
     const loveMessage = document.getElementById("loveMessage");
+    const bgMusic = document.getElementById("bgMusic");
 
     readBtn.addEventListener("click", () => {
       loveMessage.classList.add("open");
       readBtn.style.display = "none";
       minBtn.style.display = "inline-block";
+
+      // 🎶 Play music when envelope clicked
+      bgMusic.play();
     });
 
     minBtn.addEventListener("click", () => {
