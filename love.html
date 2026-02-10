@@ -18,13 +18,13 @@
       color: white;
     }
 
-    /* 💌 Love Letter Card */
+    /* Love Card */
     .card {
-      background: rgba(0, 0, 0, 0.45);
-      width: 80%;
+      background: rgba(0, 0, 0, 0.55);
+      width: 85%;
       max-width: 650px;
-      margin: 100px auto;
-      padding: 40px;
+      margin: 90px auto;
+      padding: 35px;
       border-radius: 25px;
       box-shadow: 0 0 25px rgba(255, 0, 100, 0.4);
       position: relative;
@@ -32,21 +32,63 @@
     }
 
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      color: #fff;
+      font-size: 2.3rem;
+      margin-bottom: 15px;
+    }
+
+    /* Scrollable Love Message */
+    .message-box {
+      max-height: 0;
+      overflow-y: auto;
+      transition: max-height 0.6s ease;
+      padding: 0;
+      margin-top: 15px;
+      border-radius: 15px;
+    }
+
+    .message-box.open {
+      max-height: 220px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.08);
     }
 
     p {
-      font-size: 1.3rem;
+      font-size: 1.15rem;
       line-height: 1.8;
-      color: white;
       margin: 0;
+      color: white;
+    }
+
+    /* Buttons */
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .readBtn {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .readBtn:hover {
+      background: #e6004c;
+    }
+
+    .minBtn {
+      background: white;
+      color: #ff4d6d;
+      display: none;
     }
 
     .signature {
-      margin-top: 30px;
-      font-size: 1.4rem;
+      margin-top: 25px;
+      font-size: 1.3rem;
       font-style: italic;
       color: #ffb3c6;
     }
@@ -61,45 +103,58 @@
     }
 
     @keyframes floatUp {
-      0% {
-        transform: translateY(0);
-        opacity: 0.9;
-      }
-      100% {
-        transform: translateY(-900px);
-        opacity: 0;
-      }
+      0% { transform: translateY(0); opacity: 0.9; }
+      100% { transform: translateY(-900px); opacity: 0; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- 💌 Love Letter Card -->
   <div class="card">
-    <h1>💖LOVE YOU 💖</h1>
+    <h1>💖 Aiyayayaya Mama for You 💖</h1>
 
-    <p>
-      Trista, I want you to know how deeply I love and adore you.
-      Every moment with you feels magical, and I cherish every smile,
-      every laugh, every hug we share.
-      You are my heart, my happiness, and my everything. I promise to make you feel as
-      special as you make me every single day. As we go through this relationship together
-      i want to create good n happy moments with you coz you are my daymaker.Waking up in the morning 
-      knowing that i will talk to you gives me a reason to smile n going to sleep also gives me a reason 
-      to wake up the next day mama coz litreally i love you baby.Even though sometimes we have hicups we always
-      find a solution n i love u for that......nakupenda tu sana n always know that u have a loving
-      n caring boyfriend in your life baby.I Cant wait for what is yet to come for us mama but all i can
-      tell you is that i love you so much.Lakini pia kukusumbua nayo ni constant ju ni mimi tu naweza kuragebait 
-      haraka tena sana n always takecare for me."KIsses Baby"I LOVE YOU💕<br><br>
+    <!-- Buttons -->
+    <button class="readBtn" id="readMoreBtn">💌 Read My Love Letter</button>
+    <button class="minBtn" id="minimizeBtn">✨ Minimize</button>
 
-      You are my heart, my happiness, and my everything.
-      I promise to make you feel as special as you make me
-      every single day. 💕
-    </p>
+    <!-- Scrollable Message -->
+    <div class="message-box" id="loveMessage">
+       <p>
+        Trista, I want you to know how deeply I love and adore you.
+        Every moment with you feels magical, and I cherish every smile,
+        every laugh, every hug we share.
+      
+         <br><br>
+      <p>
+        Trista, you are my heart, my happiness, and my everything. 💖  
+        I promise to love you, adore you, and make you feel special every single day.
+
+        <br><br>
+
+        You bring so much joy into my life, and just talking to you makes my day better.
+        Being with you feels like peace and home.
+
+        <br><br>
+
+        Even when we have small hiccups, I love how we always find our way back to each other.
+        Nakupenda sana ❤️
+
+        <br><br>
+
+        Always remember you have a loving and caring boyfriend by your side.
+        I can’t wait for all the beautiful moments ahead for us.
+
+        <br><br>
+
+        <b>Kisses baby 💋</b>  
+        <br>
+        <b>I LOVE YOU TRISTA 💕</b>
+      </p>
+    </div>
 
     <div class="signature">
-      — Your Love, Sam 😘
+      — Love you, Sam 😘
     </div>
   </div>
 
@@ -109,7 +164,24 @@
   </audio>
 
   <script>
-    /* Floating Hearts */
+    // Expand / Collapse Love Letter
+    const readBtn = document.getElementById("readMoreBtn");
+    const minBtn = document.getElementById("minimizeBtn");
+    const loveMessage = document.getElementById("loveMessage");
+
+    readBtn.addEventListener("click", () => {
+      loveMessage.classList.add("open");
+      readBtn.style.display = "none";
+      minBtn.style.display = "inline-block";
+    });
+
+    minBtn.addEventListener("click", () => {
+      loveMessage.classList.remove("open");
+      minBtn.style.display = "none";
+      readBtn.style.display = "inline-block";
+    });
+
+    // Floating Hearts
     const hearts = ["💖", "💘", "❤️", "💕", "😍"];
 
     function createHeart() {
@@ -123,9 +195,7 @@
 
       document.body.appendChild(heart);
 
-      setTimeout(() => {
-        heart.remove();
-      }, 6000);
+      setTimeout(() => heart.remove(), 6000);
     }
 
     setInterval(createHeart, 300);
